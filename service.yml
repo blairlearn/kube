@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: glossary-api-frontend
+  labels:
+    app: glossary-api-frontend
+spec:
+  type: NodePort  # ClusterIP if no exposed ports.
+  ports:
+    - port: 5000
+      nodePort: 30000 # Optional, 30000-32767
+  selector:
+    name: webapi-pod

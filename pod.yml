@@ -1,0 +1,14 @@
+# Gratuitous.  Really, just put everything in the deployment and be done with it.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: glossary-api
+  labels:
+    tier: db-tier
+spec:
+  containers:
+    - name: glossary-api
+      image: glossary-api
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 5000

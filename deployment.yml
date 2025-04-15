@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapis
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: webapi-pod
+  template:
+    metadata:
+      labels:
+        name: webapi-pod
+    spec:
+      containers:
+      - name: glossary-api
+        image: glossary-api
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 5000
